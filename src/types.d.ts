@@ -9,3 +9,14 @@ export interface Styled {
 export interface AnyObject {
    [propName: string]: unknown;
 }
+
+export type SideBarContextType = {
+   isSidebarOpen: boolean;
+   openSidebar: () => void;
+   closeSidebar: () => void;
+ };
+
+ export type ThemeContextType = {
+   theme: string | null;
+   toggleTheme: () => void;
+ };

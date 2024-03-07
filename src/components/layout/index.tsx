@@ -1,5 +1,5 @@
-import { Navbar } from 'components/navbar';
-import Footer from 'components/footer';
+import { Outlet } from "react-router-dom";
+import { Sidebar } from '..';
 import pageStyles from 'components/layout/layout.module.scss';
 
 interface PageLayoutProps {
@@ -8,10 +8,12 @@ interface PageLayoutProps {
 
 const PageLayout = ({ children }: PageLayoutProps) => {
    return (
-      <section className={pageStyles.layout}>
-         <Navbar />
+      <section className={pageStyles["page-wrapperr"]}>
+         <Sidebar />
          {children}
-         <Footer />
+         <div className={pageStyles["content-wrapper"]}>
+        <Outlet />
+      </div>
       </section>
    );
 };
