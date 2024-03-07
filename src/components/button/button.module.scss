@@ -1,0 +1,23 @@
+.button {
+   display: flex;
+   gap: 10px;
+   padding: 10px 24px;
+   justify-content: center;
+   border: none;
+   cursor: pointer; 
+}
+
+
+.primary-button {
+    @extend .button;
+    background-color: inherit;
+    border: 1px solid  #E1F16B;
+    color: #E1F16B;
+  }
+  
+  .secondary-button {
+    @extend .button;
+    background-color: #E1F16B !important;
+    color: #1A1D1F;
+  }
+  

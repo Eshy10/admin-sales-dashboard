@@ -1,0 +1,15 @@
+.stats_background {
+    background:linear-gradient(to bottom right, #E1F16B, rgba(205, 231, 60, 0.9)), url("../../../images/image-background.svg"), no-repeat;    background-size: cover;
+    background-position: center;
+    background-size: cover;
+    padding: 5rem;
+    width: 100%;
+  }
+  
+  @media only screen and (max-width: 992px) {
+    .stats_background {
+      margin: auto;
+    }
+  
+  }
+  
