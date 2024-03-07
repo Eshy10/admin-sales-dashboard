@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../context/themeContext";
 import { LIGHT_THEME } from "../../constants/themeConstants";
@@ -7,6 +7,7 @@ import LogoWhite from "../../assets/images/logo_white.svg";
 import { MdOutlineClose, MdOutlineLogout } from "react-icons/md";
 import sidebarStyles from "./sidebar.module.scss";
 import { SidebarContext } from "../../context/sidebarContext";
+import useHandleClickOutside from "../../hooks/useHandleClickOutside";
 import { MenuItems } from "../../data";
 
 const Sidebar = () => {
@@ -14,23 +15,8 @@ const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useContext(SidebarContext);
   const navbarRef = useRef<HTMLDivElement | null>(null);
 
-  // closing the navbar when clicked outside the sidebar area
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      navbarRef.current &&
-      !navbarRef.current?.contains(event.target as Node) &&
-      (event.target as HTMLElement).className !== "sidebar-open-btn"
-    ) {
-      closeSidebar();
-    }
-  };
+  useHandleClickOutside(navbarRef, closeSidebar)
 
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   return (
     <nav
