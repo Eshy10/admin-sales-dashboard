@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
+import styles from './salesCards.module.scss'
 
 interface AreaCardProps {
   colors: string[];
@@ -25,13 +26,13 @@ const AreaCard = ({ colors, percentFillValue, cardInfo }: AreaCardProps) => {
   };
 
   return (
-    <div className="area-card">
-      <div className="area-card-info">
-        <h5 className="info-title">{cardInfo.title}</h5>
-        <div className="info-value">{cardInfo.value}</div>
-        <p className="info-text">{cardInfo.text}</p>
+    <div className={styles["area-card"]}>
+      <div className={styles["area-card-info"]}>
+        <h5 className={styles["info-title"]}>{cardInfo.title}</h5>
+        <div className={styles["info-value"]}>{cardInfo.value}</div>
+        <p className={styles["info-text"]}>{cardInfo.text}</p>
       </div>
-      <div className="area-card-chart">
+      <div className={styles["area-card-chart"]}>
         <PieChart width={100} height={100}>
           <Pie
             data={data}

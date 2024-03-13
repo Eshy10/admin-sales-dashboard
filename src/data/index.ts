@@ -16,37 +16,37 @@ export const MenuItems = [{
 },
 {
     menuName: 'Statistics',
-    menuLink: '/',
+    menuLink: '/statistics',
     menuIcon: MdOutlineBarChart
 },
 {
     menuName: 'Payment',
-    menuLink: '/',
+    menuLink: '/payment',
     menuIcon: MdOutlineAttachMoney 
 },
 {
     menuName: 'Transactions',
-    menuLink: '/',
+    menuLink: '/transactions',
     menuIcon: MdOutlineCurrencyExchange
 },
 {
     menuName: 'Products',
-    menuLink: '/',
+    menuLink: '/products',
     menuIcon: MdOutlineShoppingBag 
 },
 {
     menuName: 'Customer',
-    menuLink: '/',
+    menuLink: '/customer',
     menuIcon: MdOutlinePeople
 },
 {
     menuName: 'Messages',
-    menuLink: '/',
+    menuLink: '/messages',
     menuIcon: MdOutlineMessage
 },
 {
     menuName: 'Settings',
-    menuLink: '/',
+    menuLink: '/settings',
     menuIcon: MdOutlineSettings
 },
 ]

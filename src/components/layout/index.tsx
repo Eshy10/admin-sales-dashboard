@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Sidebar } from '..';
-import pageStyles from 'components/layout/layout.module.scss';
+import pageStyles from './layout.module.scss';
 
 interface PageLayoutProps {
    children: React.ReactNode | React.ReactNode[];
@@ -8,11 +8,10 @@ interface PageLayoutProps {
 
 const PageLayout = ({ children }: PageLayoutProps) => {
    return (
-      <section className={pageStyles["page-wrapperr"]}>
+      <section className={pageStyles["page-wrapper"]}>
          <Sidebar />
-         {children}
          <div className={pageStyles["content-wrapper"]}>
-        <Outlet />
+         {children}
       </div>
       </section>
    );

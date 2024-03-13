@@ -68,7 +68,7 @@ const TABLE_DATA = [
   },
 ];
 
-const AreaTable = () => {
+const SalesTable = () => {
   return (
     <section className={styles["content-area-table"]}>
       <div className={styles["data-table-info"]}>
@@ -117,4 +117,4 @@ const AreaTable = () => {
   );
 };
 
-export default AreaTable;
+export default SalesTable;

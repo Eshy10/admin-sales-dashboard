@@ -1,23 +1,21 @@
 import { MdOutlineMenu } from "react-icons/md";
-import "./AreaTop.scss";
 import { useContext, useRef, useState } from "react";
 import { SidebarContext } from "../../../context/sidebarContext";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { addDays } from "date-fns";
-import { DateRange, DateRangeProps, Range } from 'react-date-range';
+import { DateRange, DateRangeProps, Range } from "react-date-range";
 import useHandleClickOutside from "../../../hooks/useHandleClickOutside";
-import styles from './salesTopCard.module.scss'
+import "./salesTopCard.scss";
 
-
-const AreaTop = () => {
+const SalesTop = () => {
   const { openSidebar } = useContext(SidebarContext);
 
-  const [state, setState] = useState<DateRangeProps['ranges']>([
+  const [state, setState] = useState<DateRangeProps["ranges"]>([
     {
       startDate: new Date(),
       endDate: addDays(new Date(), 7),
-      key: 'selection',
+      key: "selection",
     },
   ]);
 
@@ -34,21 +32,23 @@ const AreaTop = () => {
     }
   };
 
-  useHandleClickOutside(dateRangeRef, handleInputClick)
+  const handleCloseCalendar = () =>  setShowDatePicker(false);
+
+  useHandleClickOutside(dateRangeRef, handleCloseCalendar);
 
   return (
-    <section className={styles["content-area-top"]}>
-      <div className={styles["area-top-l"]}>
+    <section className="content-area-top">
+      <div className="area-top-l">
         <button
-          className={styles["sidebar-open-btn"]}
+          className="sidebar-open-btn"
           type="button"
           onClick={openSidebar}
         >
           <MdOutlineMenu size={24} />
         </button>
-        <h2 className={styles["area-top-title"]}>Dashboard</h2>
+        <h2 className="area-top-title">Dashboard</h2>
       </div>
-      <div className={styles["area-top-r"]}>
+      <div className="area-top-r">
         <div
           ref={dateRangeRef}
           className={`date-range-wrapper ${
@@ -56,17 +56,17 @@ const AreaTop = () => {
           }`}
           onClick={handleInputClick}
         >
-      <DateRange
-        editableDateInputs={true}
-        onChange={handleDateRangeChange}
-        moveRangeOnFirstSelection={false}
-        ranges={state}
-        showMonthAndYearPickers={false}
-      />
+          <DateRange
+            editableDateInputs={true}
+            onChange={handleDateRangeChange}
+            moveRangeOnFirstSelection={false}
+            ranges={state}
+            showMonthAndYearPickers={false}
+          />
         </div>
       </div>
     </section>
   );
 };
 
-export default AreaTop;
+export default SalesTop;

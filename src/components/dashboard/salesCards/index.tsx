@@ -1,10 +1,10 @@
-import AreaCard from "./AreaCard";
-import styles from  "./areaCards.module.scss";
+import SalesCard from "./salesCard";
+import styles from  "./salesCards.module.scss";
 
-const AreaCards = () => {
+const SalesCards = () => {
   return (
     <section className={styles["content-area-cards"]}>
-      <AreaCard
+      <SalesCard
         colors={["#e4e8ef", "#475be8"]}
         percentFillValue={80}
         cardInfo={{
@@ -13,7 +13,7 @@ const AreaCards = () => {
           text: "We have sold 123 items.",
         }}
       />
-      <AreaCard
+      <SalesCard
         colors={["#e4e8ef", "#4ce13f"]}
         percentFillValue={50}
         cardInfo={{
@@ -22,7 +22,7 @@ const AreaCards = () => {
           text: "Available to payout",
         }}
       />
-      <AreaCard
+      <SalesCard
         colors={["#e4e8ef", "#f29a2e"]}
         percentFillValue={40}
         cardInfo={{
@@ -35,4 +35,4 @@ const AreaCards = () => {
   );
 };
 
-export default AreaCards;
+export default SalesCards;
