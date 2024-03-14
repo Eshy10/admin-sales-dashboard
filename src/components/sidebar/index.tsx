@@ -1,9 +1,5 @@
 import { useContext, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ThemeContext } from "../../context/themeContext";
-import { LIGHT_THEME } from "../../constants/themeConstants";
-import LogoBlue from "../../assets/images/logo_blue.svg";
-import LogoWhite from "../../assets/images/logo_white.svg";
 import { MdOutlineClose, MdOutlineLogout } from "react-icons/md";
 import { SidebarContext } from "../../context/sidebarContext";
 import useHandleClickOutside from "../../hooks/useHandleClickOutside";
@@ -11,14 +7,12 @@ import { MenuItems } from "../../data";
 import styles from "./sidebar.module.scss";
 
 const Sidebar = () => {
-  const { theme } = useContext(ThemeContext);
   const { isSidebarOpen, closeSidebar } = useContext(SidebarContext);
   const navbarRef = useRef<HTMLDivElement | null>(null);
 
   const location = useLocation();
 
   useHandleClickOutside(navbarRef, closeSidebar);
-
 
   return (
     <nav
@@ -29,8 +23,7 @@ const Sidebar = () => {
     >
       <div className={styles["sidebar-top"]}>
         <div className={styles["sidebar-brand"]}>
-          <img src={theme === LIGHT_THEME ? LogoBlue : LogoWhite} alt="" />
-          <span className={styles["sidebar-brand-text"]}>tabernam.</span>
+          <span className={styles["sidebar-brand-text"]}>LOGO.</span>
         </div>
         <button className={styles["sidebar-close-btn"]} onClick={closeSidebar}>
           <MdOutlineClose size={24} />

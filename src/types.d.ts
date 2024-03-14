@@ -20,3 +20,18 @@ export type SideBarContextType = {
    theme: string | null;
    toggleTheme: () => void;
  };
+
+ export interface Sales {
+   id: number;
+   orderID: number;
+   date: Date;
+   productName: string;
+   cogs: number;
+   price: number;
+   availability: number;
+   quantity: number;
+   escrow: numbe;
+   serviceCharges: number;
+   customer: string;
+   status: string;
+ }

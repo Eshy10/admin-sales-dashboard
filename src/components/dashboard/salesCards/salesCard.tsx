@@ -12,7 +12,7 @@ interface AreaCardProps {
   };
 }
 
-const AreaCard = ({ colors, percentFillValue, cardInfo }: AreaCardProps) => {
+const SalesCard = ({ colors, percentFillValue, cardInfo }: AreaCardProps) => {
   const filledValue = (percentFillValue / 100) * 360; // 360 degress for a full circle
   const remainedValue = 360 - filledValue;
 
@@ -28,9 +28,9 @@ const AreaCard = ({ colors, percentFillValue, cardInfo }: AreaCardProps) => {
   return (
     <div className={styles["area-card"]}>
       <div className={styles["area-card-info"]}>
-        <h5 className={styles["info-title"]}>{cardInfo.title}</h5>
-        <div className={styles["info-value"]}>{cardInfo.value}</div>
-        <p className={styles["info-text"]}>{cardInfo.text}</p>
+        <h5 className={styles["info-title"]}>{cardInfo?.title}</h5>
+        <div className={styles["info-value"]}>{cardInfo?.value}</div>
+        <p className={styles["info-text"]}>{cardInfo?.text}</p>
       </div>
       <div className={styles["area-card-chart"]}>
         <PieChart width={100} height={100}>
@@ -60,9 +60,9 @@ const AreaCard = ({ colors, percentFillValue, cardInfo }: AreaCardProps) => {
   );
 };
 
-export default AreaCard;
+export default SalesCard;
 
-AreaCard.propTypes = {
+SalesCard.propTypes = {
   colors: PropTypes.array.isRequired,
   percentFillValue: PropTypes.number.isRequired,
   cardInfo: PropTypes.object.isRequired,

@@ -1,3 +1,4 @@
+import { useAppSelector } from "../../../lib/hooks";
 import AreaTableAction from "./salesTableAction";
 import styles from "./salesTable.module.scss";
 
@@ -11,64 +12,15 @@ const TABLE_HEADS = [
   "Action",
 ];
 
-const TABLE_DATA = [
-  {
-    id: 100,
-    name: "Iphone 13 Pro",
-    order_id: 11232,
-    date: "Jun 29,2022",
-    customer: "Afaq Karim",
-    status: "delivered",
-    amount: 400,
-  },
-  {
-    id: 101,
-    name: "Macbook Pro",
-    order_id: 11232,
-    date: "Jun 29,2022",
-    customer: "Afaq Karim",
-    status: "pending",
-    amount: 288,
-  },
-  {
-    id: 102,
-    name: "Apple Watch",
-    order_id: 11232,
-    date: "Jun 29,2022",
-    customer: "Afaq Karim",
-    status: "canceled",
-    amount: 500,
-  },
-  {
-    id: 103,
-    name: "Microsoft Book",
-    order_id: 11232,
-    date: "Jun 29,2022",
-    customer: "Afaq Karim",
-    status: "delivered",
-    amount: 100,
-  },
-  {
-    id: 104,
-    name: "Apple Pen",
-    order_id: 11232,
-    date: "Jun 29,2022",
-    customer: "Afaq Karim",
-    status: "delivered",
-    amount: 60,
-  },
-  {
-    id: 105,
-    name: "Airpods",
-    order_id: 11232,
-    date: "Jun 29,2022",
-    customer: "Afaq Karim",
-    status: "delivered",
-    amount: 80,
-  },
-];
-
 const SalesTable = () => {
+  const sales = useAppSelector((state) => state.saleseducer.sales);
+
+  const formatDate = (val: Date) => {
+    const date = new Date(val);
+    const formattedDate = `${date.toLocaleString('default', { month: 'short' })} ${date.getDate()}, ${date.getFullYear()}`;
+    return formattedDate;
+  }
+
   return (
     <section className={styles["content-area-table"]}>
       <div className={styles["data-table-info"]}>
@@ -84,12 +36,12 @@ const SalesTable = () => {
             </tr>
           </thead>
           <tbody>
-            {TABLE_DATA?.map((dataItem) => {
+            { sales?.slice(7).map((dataItem) => {
               return (
                 <tr key={dataItem.id}>
-                  <td>{dataItem.name}</td>
-                  <td>{dataItem.order_id}</td>
-                  <td>{dataItem.date}</td>
+                  <td>{dataItem.productName}</td>
+                  <td>{dataItem.orderID}</td>
+                  <td>{formatDate(dataItem.date)}</td>
                   <td>{dataItem.customer}</td>
                   <td>
                     <div className={styles["dt-status"]}>
@@ -103,7 +55,7 @@ const SalesTable = () => {
                       </span>
                     </div>
                   </td>
-                  <td>${dataItem.amount.toFixed(2)}</td>
+                  <td>${dataItem.price.toFixed(2)}</td>
                   <td className={styles["dt-cell-action"]}>
                     <AreaTableAction />
                   </td>
