@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { useAppSelector, useAppDispatch } from "../../lib/hooks";
+import { useAppDispatch } from "../../lib/hooks";
 import { setSales } from "../../lib/features/sales";
 import { ThemeContext } from "../../context/themeContext";
 import { DARK_THEME, LIGHT_THEME } from "../../constants/themeConstants";
@@ -16,7 +16,6 @@ import "./dashboard.scss";
 import { SalesData } from "../../data/sales";
 
 const Dashboard = () => {
-  const sales = useAppSelector((state) => state.saleseducer.sales);
   const { theme, toggleTheme } = useContext(ThemeContext);
   const dispatch = useAppDispatch();
 
