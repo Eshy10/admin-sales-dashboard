@@ -23,6 +23,9 @@ SCSS
 React Redux Toolkit
 Vite
 
+# Link
+https://admin-sales-dashboard.vercel.app/
+
 # Future Update
 Additional update to the Line Chart to show company loss over the month
 Fix the Logic of The calender Range to filter data coming from the backend
