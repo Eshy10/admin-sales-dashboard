@@ -16,14 +16,16 @@ $ npm run dev
 ~~~
 
 # Stack
+~~~bash
 React
 Typescript
 React-Range-Calender
 SCSS
 React Redux Toolkit
 Vite
+~~~
 
-# Link
+## Link
 https://admin-sales-dashboard.vercel.app/
 
 # Future Update
