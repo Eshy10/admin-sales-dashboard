@@ -36,6 +36,8 @@ const SalesTop = () => {
 
   useHandleClickOutside(dateRangeRef, handleCloseCalendar);
 
+  console.log('hey', state)
+
   return (
     <section className="content-area-top">
       <div className="area-top-l">

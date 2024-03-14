@@ -9,20 +9,16 @@ const AreaProgressChart = () => {
   );
 
   const getMostSoldItems = () => {
-    console.log("sales", sales);
     const productSales = [...sales];
-    const sortedsales = productSales?.sort((a, b) => b.quantity - a.quantity);
-    const topFourItems = sortedsales.slice(0, 4);
-    const remainingQuantity =
-      sales?.reduce((total, item) => total + item.quantity, 0) -
-      topFourItems.reduce((total, item) => total + item.quantity, 0);
+    const uniquItems = [...new Map(productSales.map(prod => [prod.productName, prod])).values()]
+    const sortedsales = uniquItems?.sort((a, b) => b.quantity - a.quantity);
+    const topFourItems = sortedsales.slice(0,5);
 
     return [
       ...topFourItems.map(({ productName, quantity }) => ({
         productName,
         saleQuantity: quantity,
       })),
-      { productName: "Others", saleQuantity: remainingQuantity },
     ];
   };
 

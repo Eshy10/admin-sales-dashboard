@@ -20,12 +20,14 @@ const Sidebar = () => {
         isSidebarOpen ? styles["sidebar-show"] : ""
       }`}
       ref={navbarRef}
+      role=""
+      data-testId='sidebar'
     >
       <div className={styles["sidebar-top"]}>
         <div className={styles["sidebar-brand"]}>
           <span className={styles["sidebar-brand-text"]}>LOGO.</span>
         </div>
-        <button className={styles["sidebar-close-btn"]} onClick={closeSidebar}>
+        <button className={styles["sidebar-close-btn"]} onClick={closeSidebar} data-testId='hamburger-menu'>
           <MdOutlineClose size={24} />
         </button>
       </div>
