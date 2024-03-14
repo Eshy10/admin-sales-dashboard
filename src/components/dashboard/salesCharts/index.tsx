@@ -1,5 +1,5 @@
 import SalesBarChart from "./SalesBarChart";
-import SalesProgressChart from "./SalesProgressChart";
+import SalesProgressChart from "./SalesProgress";
 import SalesLineChart from "./SalesLineChart";
 import SalesPieChart from "./SalesPieChart";
 import styles from "./salesCharts.module.scss";
