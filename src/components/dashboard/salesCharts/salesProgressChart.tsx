@@ -1,7 +1,7 @@
 import { useAppSelector } from "../../../lib/hooks";
 import styles from "./salesCharts.module.scss";
 
-const AreaProgressChart = () => {
+const SalesProgressChart = () => {
   const sales = useAppSelector((state) => state.saleseducer.sales);
   const totalQuantity = sales?.reduce(
     (total, sale) => total + sale.quantity,
@@ -57,4 +57,4 @@ const AreaProgressChart = () => {
   );
 };
 
-export default AreaProgressChart;
+export default SalesProgressChart;
